@@ -1,2 +1,3 @@
-def hello() -> str:
-    return "Hello from bunyan-formatter!"
+from .logger import BunyanFormatter
+
+__all__ = ("BunyanFormatter",)

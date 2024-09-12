@@ -72,13 +72,15 @@ logger.critical("This is a critical message")
 In your Django project's `settings.py` file, add the following logging configuration:
 
 ```python
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
         "bunyan": {
             "()": BunyanFormatter,
-            "project_name": "cashflow",
+            "project_name": "MyProject",
             "project_root": BASE_DIR,
         },
     },

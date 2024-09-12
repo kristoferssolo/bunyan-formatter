@@ -5,6 +5,7 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+  * [Django](#django)
 - [Examples](#examples)
   * [Basic Logging](#basic-logging)
   * [Error Logging with Exception](#error-logging-with-exception)
@@ -64,6 +65,42 @@ logger.info("This is an info message")
 logger.warning("This is a warning message")
 logger.error("This is an error message")
 logger.critical("This is a critical message")
+```
+
+### Django
+
+In your Django project's `settings.py` file, add the following logging configuration:
+
+```python
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "bunyan": {
+            "()": BunyanFormatter,
+            "project_name": "cashflow",
+            "project_root": BASE_DIR,
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "bunyan",
+            "stream": "ext://sys.stdout",
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR / "logs" / "django.log",
+            "formatter": "bunyan",
+        },
+    },
+    "root": {
+        "level": "DEBUG",
+        "handlers": ["console", "file"],
+    },
+}
 ```
 
 ## Examples

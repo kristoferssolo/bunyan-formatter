@@ -1,10 +1,10 @@
 [project]
 name = "bunyan-formatter"
-version = "0.1.0"
+version = "1.0.0"
 description = "Bunyan Formatter for Python"
 dependencies = []
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">=3.9"
 authors = [{ name = "Kristofers Solo", email = "dev@kristofers.xyz" }]
 
 [build-system]
@@ -13,7 +13,13 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = ["mypy~=1.11", "ruff~=0.6", "pre-commit~=3.8", "pytest~=8.3"]
+dev-dependencies = [
+  "mypy~=1.11",
+  "ruff~=0.6",
+  "pre-commit~=3.8",
+  "pytest~=8.3",
+  "tox~=4.18",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -25,7 +31,7 @@ packages = ["src/bunyan_formatter"]
 show-fixes = true
 line-length = 120
 indent-width = 4
-target-version = "py38"
+target-version = "py312"
 
 [tool.ruff.lint]
 extend-select = [

@@ -1,12 +1,14 @@
 import json
 import logging
 import socket
+import time
 from logging import Formatter, LogRecord
 from pathlib import Path
+from typing import ClassVar, Optional
 
 
 class BunyanFormatter(Formatter):
-    LEVEL_MAP = {
+    LEVEL_MAP: ClassVar[dict[int, int]] = {
         logging.NOTSET: 10,
         logging.DEBUG: 20,
         logging.INFO: 30,
@@ -38,10 +40,19 @@ class BunyanFormatter(Formatter):
             "levelname": record.levelname,
             "hostname": hostname,
             "pid": record.process,
-            "time": self.formatTime(record, "%Y-%m-%dT%H:%M:%S.%fZ"),
+            "time": self.formatTime(record),
             "target": record.name,
             "line": record.lineno,
             "file": str(relative_path),
         }
 
         return json.dumps(log_entry)
+
+    def formatTime(self, record: LogRecord, datefmt: Optional[str] = None) -> str:  # noqa: N802
+        ct = self.converter(record.created)
+        if datefmt:
+            s = time.strftime(datefmt, ct)
+        else:
+            t = time.strftime("%Y-%m-%dT%H:%M:%S", ct)
+            s = f"{t}.{int(record.msecs):03d}Z"
+        return s

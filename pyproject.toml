@@ -1,10 +1,10 @@
 [project]
 name = "bunyan-formatter"
-version = "0.1.0"
+version = "1.0.0"
 description = "Bunyan Formatter for Python"
 dependencies = []
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.9"
 authors = [{ name = "Kristofers Solo", email = "dev@kristofers.xyz" }]
 
 [build-system]

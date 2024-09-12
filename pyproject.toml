@@ -1,11 +1,29 @@
 [project]
 name = "bunyan-formatter"
 version = "0.1.1"
-description = "Bunyan Formatter for Python"
+description = "A custom formatter for Python's logging module that outputs logs in the Bunyan JSON format."
 dependencies = []
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "Kristofers Solo", email = "dev@kristofers.xyz" }]
+license = { file = "LICENSE" }
+keywords = ["logger", "logging", "bunyan", "formatter"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Intended Audience :: Developers",
+  "Topic :: Logging :: Bunyan",
+]
+
+[project.urls]
+Source = "https://github.com/kristoferssolo/bunyan-formatter"
+Tracker = "https://github.com/kristoferssolo/bunyan-formatter/issues"
 
 [build-system]
 requires = ["hatchling"]

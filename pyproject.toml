@@ -1,6 +1,6 @@
 [project]
 name = "bunyan-formatter"
-version = "0.1.0"
+version = "0.1.1"
 description = "Bunyan Formatter for Python"
 dependencies = []
 readme = "README.md"

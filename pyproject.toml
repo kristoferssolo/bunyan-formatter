@@ -13,10 +13,59 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = ["mypy~=1.11", "ruff~=0.6", "pre-commit~=3.8", "pytest~=8.3"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bunyan_formatter"]
+
+[tool.ruff]
+show-fixes = true
+line-length = 120
+indent-width = 4
+target-version = "py38"
+
+[tool.ruff.lint]
+extend-select = [
+  "B",
+  "BLE",
+  "C4",
+  "ERA",
+  "I",
+  "ICN",
+  "INP",
+  "ISC",
+  "N",
+  "NPY",
+  "PGH",
+  "PIE",
+  "PT",
+  "Q",
+  "RET",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
+  "T20",
+  "TCH",
+  "TID",
+  "YTT",
+]
+preview = true
+fixable = ["ALL"]
+ignore = ["E741", "ISC001"]
+
+
+[tool.ruff.lint.extend-per-file-ignores]
+# Disable for all files in the tests directory
+"**/tests/*" = ["S101", "S106", "PLR2004"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = 40

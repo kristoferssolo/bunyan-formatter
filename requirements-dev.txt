@@ -66,7 +66,7 @@ typing-extensions==4.15.0
     #   mypy
     #   tox
     #   virtualenv
-virtualenv==20.36.1
+virtualenv==20.35.4
     # via
     #   pre-commit
     #   tox

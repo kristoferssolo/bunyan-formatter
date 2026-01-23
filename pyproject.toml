@@ -1,6 +1,6 @@
 [project]
 name = "bunyan-formatter"
-version = "0.1.6"
+version = "1.0.1"
 description = "A custom formatter for Python's logging module that outputs logs in the Bunyan JSON format."
 dependencies = []
 readme = "README.md"

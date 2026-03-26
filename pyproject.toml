@@ -1,6 +1,6 @@
 [project]
 name = "bunyan-formatter"
-version = "1.0.1"
+version = "1.0.2"
 description = "A custom formatter for Python's logging module that outputs logs in the Bunyan JSON format."
 dependencies = []
 readme = "README.md"
@@ -13,7 +13,6 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -32,11 +31,11 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+  "build~=1.3",
   "mypy~=1.19",
   "ruff~=0.14",
   "pre-commit~=4.5",
   "pytest~=9.0",
-  "tox~=4.32",
 ]
 
 [tool.hatch.metadata]
@@ -49,7 +48,7 @@ packages = ["src/bunyan_formatter"]
 show-fixes = true
 line-length = 120
 indent-width = 4
-target-version = "py313"
+target-version = "py310"
 
 [tool.ruff.lint]
 extend-select = [
